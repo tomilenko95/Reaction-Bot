@@ -13,4 +13,4 @@ Pillow==9.1.1
 pymongo==4.1.1
 typing_extensions==4.2.0
 yarl==1.7.2
-pip install youtube_dl==2021.12.17
+youtube_dl==2021.12.17
