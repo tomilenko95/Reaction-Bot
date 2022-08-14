@@ -38,10 +38,6 @@ for filename in os.listdir("./cogs"):
         bot.load_extension(f"cogs.{filename[:-3]}")
  
 
-discord.opus.load_opus()
-if not discord.opus.is_loaded():
-    raise RunTimeError('Opus failed to load')
- 
 #voice.play(discord.FFmpegPCMAudio(executable="ffmpeg/bin/ffmpeg.exe", **FFMPEG_OPTIONS))
 
 
