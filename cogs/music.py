@@ -78,7 +78,6 @@ class Music(commands.Cog):
 
         guild = ctx.guild
         gname = guild.name
-        videoID = url.split("watch?v=")[1].split("&")[0]
         clientname = config["settings"]["name"]
         embed=discord.Embed(title= "<a:7546tree:919153727913476138>Сейчас играет:", color=000000)
         embed.add_field(name='{}'.format(player.title), value='⠀', inline=False)
