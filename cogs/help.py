@@ -14,7 +14,7 @@ with open('config.json', 'r', encoding="utf-8") as file:
 	config = json.load(file)
 
 
-class Help(commands.Cog):
+class hp(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
@@ -40,4 +40,4 @@ class Help(commands.Cog):
         await ctx.send(embed=embed)
 
 def setup(bot):
-    bot.add_cog(Help(bot))
+    bot.add_cog(hp(bot))
