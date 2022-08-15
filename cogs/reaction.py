@@ -104,7 +104,7 @@ class Reaction(commands.Cog):
         await ctx.send(embed=embed)
 
     @hug.error
-    async def kill_error(ctx, error):
+    async def hug_error(ctx, error):
         if isinstance(error, commands.MissingRequiredArgument):
             embed = discord.Embed(color=member.color, title="Ошибка")
             await ctx.send(embed=embed)
