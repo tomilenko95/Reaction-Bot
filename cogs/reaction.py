@@ -47,6 +47,8 @@ class Reaction(commands.Cog):
         self.bot = bot
         print('Module {} is loaded'.format(self.__class__.__name__))
 
+    emb1 = discord.Embed(color=member.color, title="Ошибка")
+    emb1.description = f"Вы не указали участника."
 
 
 
@@ -103,11 +105,6 @@ class Reaction(commands.Cog):
         url = (random.choice(hgs))
         embed.set_image(url=url)
         await ctx.send(embed=embed)
-
-        emb1 = discord.Embed(color=member.color, title="Ошибка")
-        emb1.description = f"Вы не указали участника."
-        url = (random.choice(hgs))
-        emb1.set_image(url=url)
 
 
 def setup(bot):
