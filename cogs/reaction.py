@@ -96,12 +96,18 @@ class Reaction(commands.Cog):
     @commands.command()
     async def hug(self, ctx, member: discord.Member = None):
         if member is None:
-            await ctx.send("Вы не указали участника")
+            await ctx.send(embed="Вы не указали участника")
         embed = discord.Embed(color=member.color, title="Обнимашки")
         embed.description = f"{ctx.author.mention} Обнял(а) {member.mention}"
         url = (random.choice(hgs))
         embed.set_image(url=url)
         await ctx.send(embed=embed)
+
+    @hug.error
+    async def kill_error(ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            embed = discord.Embed(color=member.color, title="Ошибка")
+            await ctx.send(embed=embed)
 
 
 def setup(bot):
