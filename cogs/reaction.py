@@ -57,12 +57,12 @@ class Reaction(commands.Cog):
 
 
     @commands.command()
-    async def hug(self, ctx, member: discord.Member = None):
+    async def put(self, ctx, member: discord.Member = None):
         if member is None:
             member = ctx.author
         embed = discord.Embed(color=member.color, title="Обнимашки")
         embed.description = f"{ctx.author.mention} Обнял(a) {member.mention}"
-        url = (random.choice(hugs))
+        url = (random.choice(puts))
         embed.set_image(url=url)
         await ctx.send(embed=embed)
 
