@@ -97,7 +97,7 @@ class Reaction(commands.Cog):
     @commands.command()
     async def hug(self, ctx, member: discord.Member = None):
         if member is None:
-            await ctx.send("Укажите участника.")
+            await ctx.send(color=member.color, "Укажите участника.")
         embed = discord.Embed(color=member.color, title="Обнимашки")
         embed.description = f"{ctx.author.mention} Обнял(а) {member.mention}"
         url = (random.choice(hgs))
