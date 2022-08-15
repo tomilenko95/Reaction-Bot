@@ -47,9 +47,6 @@ class Reaction(commands.Cog):
         self.bot = bot
         print('Module {} is loaded'.format(self.__class__.__name__))
 
-    emb1 = discord.Embed(color=member.color, title="Ошибка")
-    emb1.description = f"Вы не указали участника."
-
 
 
     @commands.command()
@@ -99,7 +96,7 @@ class Reaction(commands.Cog):
     @commands.command()
     async def hug(self, ctx, member: discord.Member = None):
         if member is None:
-            await ctx.send(emb1=embed)
+            await ctx.send("Вы не указали участника")
         embed = discord.Embed(color=member.color, title="Обнимашки")
         embed.description = f"{ctx.author.mention} Обнял(а) {member.mention}"
         url = (random.choice(hgs))
