@@ -17,7 +17,7 @@ with open('config.json', 'r', encoding="utf-8") as file:
 	config = json.load(file)
 
 
-class Music(commands.Cog):
+class fucking(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
@@ -156,4 +156,4 @@ class Music(commands.Cog):
         await ctx.send(embed=embed)
 
 def setup(bot):
-    bot.add_cog(Music(bot))
+    bot.add_cog(fucking(bot))
