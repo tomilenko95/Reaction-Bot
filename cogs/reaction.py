@@ -32,6 +32,13 @@ evill = ['https://media.discordapp.net/attachments/1003002531024228352/100812419
         'https://media.discordapp.net/attachments/1003002531024228352/1008124268086829157/fa8a9aaa292f7a52b433ab879ce43451.gif'
         ]
 
+hgs = ['https://media.discordapp.net/attachments/776936060298854431/1008779542845993040/hug-anime.gif',
+        'https://media.discordapp.net/attachments/776936060298854431/1008779543164751962/dc53bef31455468fbc3d5bff6afb1bdb.gif',
+        'https://media.discordapp.net/attachments/776936060298854431/1008779543466737825/kitsune-upload-hug.gif',
+        'https://media.discordapp.net/attachments/776936060298854431/1008779543785517056/428b7ed57db9d7aeb2e3f70f21f7bb25.gif',
+        'https://media.discordapp.net/attachments/776936060298854431/1008779544104276121/anime-hug-40.gif'
+        ]
+
 
 
 class Reaction(commands.Cog):
@@ -39,8 +46,6 @@ class Reaction(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         print('Module {} is loaded'.format(self.__class__.__name__))
-
-
 
 
 
@@ -83,8 +88,19 @@ class Reaction(commands.Cog):
         if member is None:
             member = ctx.author
         embed = discord.Embed(color=member.color, title="Злой смех")
-        embed.description = f"{ctx.author.mention} Злостно смеётся"
+        embed.description = f"{ctx.author.mention} Злобно смеётся"
         url = (random.choice(evill))
+        embed.set_image(url=url)
+        await ctx.send(embed=embed)
+
+
+    @commands.command()
+    async def hug(self, ctx, member: discord.Member = None):
+        if member is None:
+            member = ctx.author
+        embed = discord.Embed(color=member.color, title="Обнимашки")
+        embed.description = f"{ctx.author.mention} Обнял(а) {member.mention}"
+        url = (random.choice(hgs))
         embed.set_image(url=url)
         await ctx.send(embed=embed)
 
