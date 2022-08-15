@@ -109,6 +109,18 @@ class Reaction(commands.Cog):
             embed = discord.Embed(color=member.color, title="Ошибка")
             await ctx.send(embed=embed)
 
+    @bot.command(name='kill')
+    async def kill(ctx, person: discord.Member):
+        embed = discord.Embed(color=discord.Color.red())
+        embed.set_author(name=f'{ctx.author} kills {person.display_name}')
+        embed.set_image(url=(random.choice(hgs)))
+        await ctx.send(embed=embed)
+
+    @kill.error
+    async def kill_error(ctx, error):
+        if isinstance(error, commands.MissingRequiredArgument):
+            await ctx.send("Your message!")
+
 
 def setup(bot):
     bot.add_cog(Reaction(bot))
