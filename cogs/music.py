@@ -68,58 +68,24 @@ class Music(commands.Cog):
 
 
 
-    # @commands.command()
-    # async def p(self, ctx, *, url):
-    #     """Plays from a url (almost anything youtube_dl supports)"""
-
-    #     async with ctx.typing():
-    #         player = await YTDLSource.from_url(url, loop=self.bot.loop, stream=True)
-    #         ctx.voice_client.play(player, after=lambda e: print('Player error: %s' % e) if e else None)
-
-    #     guild = ctx.guild
-    #     gname = guild.name
-    #     clientname = config["settings"]["name"]
-    #     embed=discord.Embed(title= "<a:7546tree:919153727913476138>Сейчас играет:", color=000000)
-    #     embed.add_field(name='{}'.format(player.title), value='⠀', inline=False)
-    #     embed.set_thumbnail(url = "https://cdn.discordapp.com/attachments/1001737508205375558/1008149432782561290/giphy.gif")
-        
-    #     embed.set_footer(text=f"{gname} • {clientname}")
-    #     await ctx.send(embed=embed)
-    
     @commands.command()
-    async def play(self, ctx, *, url):
+    async def p(self, ctx, *, url):
+        """Plays from a url (almost anything youtube_dl supports)"""
 
-        try:
+        async with ctx.typing():
+            player = await YTDLSource.from_url(url, loop=self.bot.loop, stream=True)
+            ctx.voice_client.play(player, after=lambda e: print('Player error: %s' % e) if e else None)
 
-            async with ctx.typing():
-                player = await YTDLSource.from_url(url, loop=self.bot.loop, stream=True)
-
-                if len(self.queue) == 0:
-
-                    self.start_playing(ctx.voice_client, player)
-                    await ctx.send(f':mag_right: **Searching for** ``' + url + '``\n<:youtube:763374159567781890> **Now Playing:** ``{}'.format(player.title) + "``")
-
-                else:
-                
-                    self.queue[len(self.queue)] = player
-                    await ctx.send(f':mag_right: **Searching for** ``' + url + '``\n<:youtube:763374159567781890> **Added to queue:** ``{}'.format(player.title) + "``")
-
-        except:
-
-            await ctx.send("Somenthing went wrong - please try again later!")
-
-    def start_playing(self, voice_client, player):
-
-        self.queue[0] = player
-
-        i = 0
-        while i <  len(self.queue):
-            try:
-                voice_client.play(self.queue[i], after=lambda e: print('Player error: %s' % e) if e else None)
-
-            except:
-                pass
-            i += 1    
+        guild = ctx.guild
+        gname = guild.name
+        clientname = config["settings"]["name"]
+        embed=discord.Embed(title= "<a:7546tree:919153727913476138>Сейчас играет:", color=000000)
+        embed.add_field(name='{}'.format(player.title), value='⠀', inline=False)
+        embed.set_thumbnail(url = "https://cdn.discordapp.com/attachments/1001737508205375558/1008149432782561290/giphy.gif")
+        
+        embed.set_footer(text=f"{gname} • {clientname}")
+        await ctx.send(embed=embed)
+        
         
 
 
