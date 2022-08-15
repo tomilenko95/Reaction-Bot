@@ -94,7 +94,7 @@ class Music(commands.Cog):
         """Changes the player's volume"""
 
         if ctx.voice_client is None:
-            return await ctx.send("Не подключен к голосовому каналу.")
+            return await ctx.send("Не подключён к голосовому каналу.")
 
         ctx.voice_client.source.volume = volume / 100
 

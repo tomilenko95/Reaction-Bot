@@ -37,7 +37,7 @@ for filename in os.listdir("./cogs"):
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=' на Boobs'))
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name=' хентай'))
     print('Запущен: {}'.format(bot.user.name))
     print('ID бота: {}'.format(bot.user.id))
 
