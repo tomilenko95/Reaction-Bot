@@ -46,7 +46,7 @@ class Reaction(commands.Cog):
 
 
     @commands.command()
-    async def put(self, ctx, member: discord.Member = None):
+    async def fuck(self, ctx, member: discord.Member = None):
         if member is None:
             member = ctx.author
         embed = discord.Embed(color=member.color, title="Поглаживание")
