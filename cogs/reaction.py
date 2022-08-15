@@ -55,7 +55,7 @@ class Reaction(commands.Cog):
         if member is None:
             member = ctx.author
         embed = discord.Embed(color=member.color, title="Поцелуй")
-        embed.description = f"{ctx.author.mention} поцеловал(а) {member.mention}"
+        embed.description = f"{ctx.author.mention} Поцеловал(а) {member.mention}"
         url = (random.choice(kis))
         embed.set_image(url=url)
         await ctx.send(embed=embed)
@@ -97,12 +97,17 @@ class Reaction(commands.Cog):
     @commands.command()
     async def hug(self, ctx, member: discord.Member = None):
         if member is None:
-            await ctx.send(color=member.color, "Укажите участника.")
+            await ctx.send(emb1=embed)
         embed = discord.Embed(color=member.color, title="Обнимашки")
         embed.description = f"{ctx.author.mention} Обнял(а) {member.mention}"
         url = (random.choice(hgs))
         embed.set_image(url=url)
         await ctx.send(embed=embed)
+
+        emb1 = discord.Embed(color=member.color, title="Ошибка")
+        emb1.description = f"Вы не указали участника."
+        url = (random.choice(hgs))
+        emb1.set_image(url=url)
 
 
 def setup(bot):
