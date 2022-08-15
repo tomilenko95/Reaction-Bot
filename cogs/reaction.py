@@ -17,8 +17,19 @@ fuk = ['https://cdn.discordapp.com/attachments/1001737508205375558/1008126551474
        'https://cdn.discordapp.com/attachments/1001737508205375558/1008130412196929607/ezgif.com-gif-maker.gif'
         ]
 
-puts = ['https://media.discordapp.net/attachments/1003002531024228352/1008363607215591434/a9c771e756e3a920c0923a109f32c145.gif',
-        'https://media.discordapp.net/attachments/1003002531024228352/1008363607538540594/b459058ae02cb62ce92c30f5be117928.gif'
+pats = ['https://media.discordapp.net/attachments/1003002531024228352/1008363607215591434/a9c771e756e3a920c0923a109f32c145.gif',
+        'https://media.discordapp.net/attachments/1003002531024228352/1008363607538540594/b459058ae02cb62ce92c30f5be117928.gif',
+        'https://media.discordapp.net/attachments/1003002531024228352/1008363678929784832/bf5be90f6800273b85b887e708c3815e.gif',
+        'https://media.discordapp.net/attachments/1003002531024228352/1008363679349223434/e83745f1c57217d93d815a47f5e41664.gif',
+        'https://media.discordapp.net/attachments/1003002531024228352/1008363679688958032/3b5e3cff6d5d1dfda13ec15ee1a248fc.gif',
+        'https://media.discordapp.net/attachments/1003002531024228352/1008363780335468544/0d9b17b4b0cc7cfe6cc00373528e9474.gif',
+        'https://media.discordapp.net/attachments/1003002531024228352/1008363780637470720/97461250280374af0819754a78900489.gif',
+        'https://media.discordapp.net/attachments/1003002531024228352/1008363780960436244/e58320c0b6994fbba5448ad189d0c509.gif'
+        ]
+
+evill = ['https://media.discordapp.net/attachments/1003002531024228352/1008124195235975168/facf4a97d923e61f75e0a0aeb6e9df6d.gif',
+        'https://media.discordapp.net/attachments/1003002531024228352/1008124195651190955/df6cdb98409ee284ba1dd7dafd0b54a3.gif',
+        'https://media.discordapp.net/attachments/1003002531024228352/1008124268086829157/fa8a9aaa292f7a52b433ab879ce43451.gif'
         ]
 
 
@@ -57,12 +68,23 @@ class Reaction(commands.Cog):
 
 
     @commands.command()
-    async def put(self, ctx, member: discord.Member = None):
+    async def pat(self, ctx, member: discord.Member = None):
         if member is None:
             member = ctx.author
         embed = discord.Embed(color=member.color, title="Поглаживание")
         embed.description = f"{ctx.author.mention} Погладил(a) {member.mention}"
-        url = (random.choice(puts))
+        url = (random.choice(pats))
+        embed.set_image(url=url)
+        await ctx.send(embed=embed)
+
+
+    @commands.command()
+    async def evillaugh(self, ctx, member: discord.Member = None):
+        if member is None:
+            member = ctx.author
+        embed = discord.Embed(color=member.color, title="Злой смех")
+        embed.description = f"{ctx.author.mention} Злостно смеётся"
+        url = (random.choice(evill))
         embed.set_image(url=url)
         await ctx.send(embed=embed)
 
