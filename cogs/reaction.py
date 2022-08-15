@@ -52,7 +52,7 @@ class Reaction(commands.Cog):
     @commands.command()
     async def kiss(self, ctx, member: discord.Member = None):
         if member is None:
-            member = ctx.author
+            await ctx.send("Вы не указали участника")
         embed = discord.Embed(color=member.color, title="Поцелуй")
         embed.description = f"{ctx.author.mention} Поцеловал(а) {member.mention}"
         url = (random.choice(kis))
@@ -63,7 +63,7 @@ class Reaction(commands.Cog):
     @commands.command()
     async def fuck(self, ctx, member: discord.Member = None):
         if member is None:
-            member = ctx.author
+            await ctx.send("Вы не указали участника")
         embed = discord.Embed(color=member.color, title="СЕКС")
         embed.description = f"{ctx.author.mention} Трахнул(а) {member.mention}"
         url = (random.choice(fuk))
@@ -74,7 +74,7 @@ class Reaction(commands.Cog):
     @commands.command()
     async def pat(self, ctx, member: discord.Member = None):
         if member is None:
-            member = ctx.author
+            await ctx.send("Вы не указали участника")
         embed = discord.Embed(color=member.color, title="Поглаживание")
         embed.description = f"{ctx.author.mention} Погладил(a) {member.mention}"
         url = (random.choice(pats))
