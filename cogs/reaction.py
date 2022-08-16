@@ -91,6 +91,22 @@ wnk = ['https://media.discordapp.net/attachments/1008837483854839931/10088522172
         'https://media.discordapp.net/attachments/1008837483854839931/1008852261520277695/08b10d500cc4ee1636c5a01cbbd5b357.gif',
         'https://media.discordapp.net/attachments/1008837483854839931/1008852261864226856/62bfba79874e765af7ab0f463e811922.gif']
 
+
+kll = ['https://media.discordapp.net/attachments/776936060298854431/1009025471092097064/yuno-gasai-gif-16.gif',
+        'https://media.discordapp.net/attachments/776936060298854431/1009025471482179664/58fdc8ad8454253ea1982cd6f79fe184.gif',
+        'https://media.discordapp.net/attachments/776936060298854431/1009025471813521559/anime-death.gif']
+
+pok = ['https://media.discordapp.net/attachments/776936060298854431/1009027011030831134/poke-anime_1.gif',
+        'https://media.discordapp.net/attachments/776936060298854431/1009027011508969502/poke-anime.gif',
+        'https://media.discordapp.net/attachments/776936060298854431/1009027011894841394/CYxJyxQ.gif',
+        'https://media.discordapp.net/attachments/776936060298854431/1009027012305895454/S00v.gif']
+
+slp = ['https://media.discordapp.net/attachments/776936060298854431/1009028559207153684/girl-slap.gif',
+        'https://media.discordapp.net/attachments/776936060298854431/1009028559655927808/B2Sm.gif',
+        'https://media.discordapp.net/attachments/776936060298854431/1009028560234754098/BQM6jEZ-UJLgGUuvrNkYUHEZ_33p1we3TqZWmyZ6XW6iZ0m7dzGNimq8VUNzJkvR6yYwbx8kQMqR2_6m-cFJwA.gif',
+        'https://media.discordapp.net/attachments/776936060298854431/1009028560704503848/1c8f0f43c75c11bf504b25340ddd912d.gif']
+
+
 class Reaction(commands.Cog):
 
     def __init__(self, bot):
@@ -208,6 +224,36 @@ class Reaction(commands.Cog):
         embed = discord.Embed(title="Подмигивание")
         embed.description = f"{ctx.author.mention} **Подмигинул** {member.mention}"
         url = (random.choice(wnk))
+        embed.set_image(url=url)
+        await ctx.send(embed=embed)
+
+    @commands.command()
+    async def kill(self, ctx, member: discord.Member = None):
+        if member is None:
+            await ctx.send("Вы не указали участника")
+        embed = discord.Embed(title="Убийство")
+        embed.description = f"{ctx.author.mention} **Убил** {member.mention}"
+        url = (random.choice(kll))
+        embed.set_image(url=url)
+        await ctx.send(embed=embed)
+
+    @commands.command()
+    async def poke(self, ctx, member: discord.Member = None):
+        if member is None:
+            await ctx.send("Вы не указали участника")
+        embed = discord.Embed(title="Тычка")
+        embed.description = f"{ctx.author.mention} **Тыкнул** {member.mention}"
+        url = (random.choice(pok))
+        embed.set_image(url=url)
+        await ctx.send(embed=embed)
+
+    @commands.command()
+    async def slap(self, ctx, member: discord.Member = None):
+        if member is None:
+            await ctx.send("Вы не указали участника")
+        embed = discord.Embed(title="Пощёчина")
+        embed.description = f"{ctx.author.mention} **Дал(а) пощёчину** {member.mention}"
+        url = (random.choice(slp))
         embed.set_image(url=url)
         await ctx.send(embed=embed)
 
