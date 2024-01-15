@@ -1,1 +1,1 @@
-# sifonbot
+# Reaction Bot for discord
